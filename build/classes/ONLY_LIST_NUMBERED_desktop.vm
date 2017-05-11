@@ -1,0 +1,12 @@
+
+<section class="ONLY_LIST_NUMBERED" $header>
+					
+					<ol>
+					#foreach( $item in $slide.getList().getItems() )
+
+#if(!$item.getText().isEmpty())
+						<li class="fragment fade-up visible" data-fragment-index="$foreach.index" >$item.getText()</li>
+						 #end
+	 	 #end
+					</ol>
+				</section>

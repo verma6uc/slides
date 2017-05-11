@@ -1,0 +1,7 @@
+
+<section class="ONLY_TITLE_PARAGRAPH" $header>
+					<h2>$slide.getTitle().getText()</h2>
+					<p>
+						$slide.getParagraph().getText()
+					</p>
+				</section>

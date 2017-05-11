@@ -1,0 +1,20 @@
+<section class="ONLY_TITLE_TREE" $header>
+					<h2>$slide.getTitle().getText()</h2>
+					<ul>
+					#foreach( $item in $slide.getList().getItems() )
+					#set( $v = $foreach.index ) 
+                #if(!$item.getText().isEmpty())
+						<li class="fragment fade-up visible" data-fragment-index="$foreach.index">$item.getText()</li>
+						
+						<ul>
+						#foreach( $itemTree in $item.getList().getItems() )
+					#if(!$itemTree.getText().isEmpty())
+						<li class="fragment fade-up visible" data-fragment-index="$v" >$itemTree.getText()</li>
+					#end
+					#end
+					#end
+					</ul>
+	 	            #end
+	 	            
+					</ul>
+</section>

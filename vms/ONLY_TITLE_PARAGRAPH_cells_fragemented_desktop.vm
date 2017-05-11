@@ -1,0 +1,4 @@
+<section class="ONLY_TITLE_PARAGRAPH_cells_fragemented" $header>
+					<h2>$slide.getTitle().getText()</h2>
+					$slide.getParagraph().getText()
+				</section>

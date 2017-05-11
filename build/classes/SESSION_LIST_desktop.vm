@@ -1,0 +1,29 @@
+<section $header class="step stack slide SESSION_LIST" >
+	#set( $v = $slide.getList().getItems().size() )
+	#set( $vt = $mathUtils.divide($v,5))
+	#foreach( $i in [0..$vt] )
+		#set( $start = $mathUtils.multiply($i,5) )
+		#if($slide.getList().getItems().size() > $start)
+			<section $header class="step stack_item slide SESSION_LIST"  >
+                <div class="row" style='height:33vh;position: relative;'>
+                    <h2 id='session_list' class="updated  fade-up" style='position: absolute;bottom: 0;padding-bottom: 26px;padding-left: 6%;
+                        padding-right: 6%;' data-fragment-index='0'><div id='data_slide_title'>Session List</div></h2>
+                </div>
+                <div class="row" style='height:66vh;position: relative;width: 92%'>   	
+                    <ul>
+                        #foreach( $item in $slide.getList().getItems() )
+                            #if($item.getId()==1 && $velocityCount <=  $start+5 && $velocityCount > $start)
+                                <li style='    padding-left: 69px;' class="current_session item_$velocityCount" ><div id='data_slide_list_item' class='interim'><a href="$item.getDescription()">$item.getText()</a></div></li>
+                            #elseif( $velocityCount <=  $start+5 && $velocityCount > $start)
+                                <li style='    padding-left: 69px;' class=" item_$velocityCount" ><div id='data_slide_list_item' class='interim'><a href="$item.getDescription()">$item.getText()</a></div></li>
+                            #end
+                        #end
+                    </ul>
+                    #if($slide.getList().getItems().size() > $start+5)
+                    <h3 id='slide_up_info' >Scroll up to view more...</h3>
+                    #end
+                </div>
+            </section>
+		#end	
+	#end		
+</section>

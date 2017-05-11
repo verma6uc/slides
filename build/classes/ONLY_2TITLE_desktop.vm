@@ -1,0 +1,17 @@
+<section class="ONLY_2TITLE" $header>
+		<div class='row'>
+					
+					<div class='col-lg-6'>
+					<h1>$slide.getTitle().getText()</h1>
+					</div>
+					
+					<div class='col-lg-6 header'>
+											<h1 class='header-content'>$slide.getTitle2().getText()</h1>
+
+					</div>
+					</div>			
+					
+					
+					
+					
+				</section>

@@ -1,0 +1,15 @@
+<section class="ONLY_2TITLE_IMAGE" $header>
+
+	<div class='row'>
+					
+					<div class='col-lg-6'>
+					<h2>$slide.getTitle().getText()</h2>
+					<h3  style=''>$slide.getTitle2().getText()</h3>
+					</div>
+					
+					<div class='col-lg-6'>
+						<img  src="$slide.getImage().getUrl()" alt="no_img" >
+					</div>
+					</div>
+  </section>
+

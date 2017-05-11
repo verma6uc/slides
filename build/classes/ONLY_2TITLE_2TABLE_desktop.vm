@@ -1,0 +1,37 @@
+<section  class="ONLY_2TITLE_2TABLE" $header>
+        <h2 id="data_slide_title" style=''>$slide.getTitle().getText()</h2>
+        <h3 id="data_slide_title" style=''>$slide.getTitle2().getText()</h3>
+
+<table border="1" cellpadding="1" cellspacing="1" >
+	<tbody>
+		<tr>
+			<td><span style='font-weight: bolder'>Small boy</span></td>
+			<td><span style='font-weight: bolder'>Mother</span></td>
+		</tr>
+		<tr>
+			<td  style='border-bottom: 10px solid black;font-size:42px;
+    padding-bottom: 84px;'>8 years old,loves to eat ice-cream</td>
+			<td style='border-bottom: 10px solid black;;font-size:42px;
+    padding-bottom: 84px;'>29 years old ,believes in Ayurveda</td>
+		</tr>
+		<tr>
+			<td style='font-size:42px;    padding-bottom: 51px;padding-top: 54px;'>Sweet in taste which hardly makes it a medicine</td>
+			<td style='font-size:42px;    padding-bottom: 51px;padding-top: 54px;'>Contains honey, Licorice Root Tea and cloves for pain relief</td>
+		</tr>
+		<tr>
+			<td style='font-size:42px;    padding-top: 31px;'>&nbsp;</td>
+			<td style='font-size:42px;    padding-top: 31px;'>Reasonably priced</td>
+		</tr>
+		<tr>
+			<td style='font-size:42px;    padding-top: 31px;'>&nbsp;</td>
+			<td style='font-size:42px;'>Keeps you active and does not make you drowsy</td>
+		</tr>
+		<tr>
+			<td style='font-size:42px;    padding-top: 31px;'>&nbsp;</td>
+			<td style='font-size:42px;    padding-top: 31px;'>Child proof bottle cap</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+</section>

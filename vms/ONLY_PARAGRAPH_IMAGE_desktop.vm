@@ -1,0 +1,21 @@
+
+<section class="ONLY_PARAGRAPH_IMAGE" $header>
+
+<div class='row'>
+					
+					<div class='col-lg-6'>
+											
+						$slide.getParagraph().getText()
+					
+					
+					</div>
+					
+					<div class='col-lg-6'>
+											<img  src="$slide.getImage().getUrl()" alt="no_img" >
+					
+					</div>
+					</div>
+						
+					</section>
+
+

@@ -1,0 +1,37 @@
+<section class="ONLY_2TITLE_TABLE" $header>
+        <h2 id="data_slide_title" style=''>$slide.getTitle().getText()</h2>
+        <h3 id="data_slide_title" style=''>$slide.getTitle2().getText()</h3>
+
+<table border="1" cellpadding="1" cellspacing="1" >
+	<tbody>
+		<tr>
+			<td><span style='font-weight: bolder'>$slide.getList().getItems().get(0).getText()</span></td>
+			<td><span style='font-weight: bolder'>$slide.getList().getItems().get(0).getDescription()</span></td>
+		</tr>
+		<tr>
+			<td  style='border-bottom: 10px solid black;font-size:42px;
+    padding-bottom: 84px;'>$slide.getList().getItems().get(1).getText()</td>
+			<td style='border-bottom: 10px solid black;;font-size:42px;
+    padding-bottom: 84px;'>$slide.getList().getItems().get(1).getDescription()</td>
+		</tr>
+		<tr>
+			<td style='font-size:42px;    padding-bottom: 51px;padding-top: 54px;'>$slide.getList().getItems().get(2).getText()</td>
+			<td style='font-size:42px;    padding-bottom: 51px;padding-top: 54px;'>$slide.getList().getItems().get(2).getDescription()</td>
+		</tr>
+		<tr>
+			<td style='font-size:42px;    padding-top: 31px;'>$slide.getList().getItems().get(3).getText()</td>
+			<td style='font-size:42px;    padding-top: 31px;'>$slide.getList().getItems().get(3).getDescription()</td>
+		</tr>
+		<tr>
+			<td style='font-size:42px;    padding-top: 31px;'>$slide.getList().getItems().get(4).getText()</td>
+			<td style='font-size:42px;    padding-top: 31px;'>$slide.getList().getItems().get(4).getDescription()</td>
+		</tr>
+		<tr>
+			<td style='font-size:42px;    padding-top: 31px;'>$slide.getList().getItems().get(5).getText()</td>
+			<td style='font-size:42px;    padding-top: 31px;'>$slide.getList().getItems().get(5).getDescription()</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+</section>

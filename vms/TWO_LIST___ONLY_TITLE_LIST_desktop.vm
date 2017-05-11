@@ -1,0 +1,61 @@
+	<section $header class="step slide IN_OUT_1___ONLY_TITLE_LIST">
+		<div class='fragment first-set'>
+			<h2 id='element_1'>$slide.getTitle().getText()</h2>
+			<img id='element_2' src="/content/assets/img/in_out_1_infographic/hand.png"> 
+		</div>
+		
+		<div class='in'>
+		#foreach( $item in $slide.getList().getItems() ) 
+			#if($velocityCount%2 == 1) 
+				#if(!$item.getText().isEmpty())
+				<ul >
+					<li id='$uuid.getUUID()'   class="item_$velocityCount fragment parent">
+						<div id='data_slide_list_item'>$item.getText()</div>
+					</li>
+				</ul>
+				#end 
+			#end 
+				
+			#if($velocityCount%2 == 0) 
+				#if(!$item.getText().isEmpty())
+				<ul>
+					<li id='$uuid.getUUID()'  class="item_$velocityCount fragment child">
+						<div id='data_slide_list_item'>$item.getText()</div>
+					</li>
+				</ul>
+				#end 
+			#end 
+			
+		#end
+		</div>
+		
+		<img class='fragment' id='element_3' src="/content/assets/img/in_out_1_infographic/pig.png">
+			
+		<div class=' second-set'>
+			<h2 class='fragment' id='element_4'>$slide.getTitle2().getText()</h2>
+			<img class='fragment' id='element_5' src="/content/assets/img/in_out_1_infographic/deadpig.png">
+			</div>
+		<div class='out'>
+		#foreach( $item in $slide.getList().getItems() ) 
+			#if($velocityCount%2 == 1)
+				#if(!$item.getDescription().isEmpty()&&!$item.getDescription().trim().equalsIgnoreCase(""))
+				<ul>
+					<li id='$uuid.getUUID()'   class="item_$velocityCount fragment parent">
+						<div id='data_slide_list_item'>$item.getDescription()</div>
+					</li>
+				</ul>
+				#end 
+			#end 
+			
+			#if($velocityCount%2 == 0)
+				#if(!$item.getDescription().isEmpty()&&!$item.getDescription().trim().equalsIgnoreCase(""))
+				<ul>
+					<liid='$uuid.getUUID()'    class="item_$velocityCount fragment child">
+						<div id='data_slide_list_item'>$item.getDescription()</div>
+					</li>
+				</ul>
+				#end 
+			#end 
+		#end
+		</div>
+	</section>

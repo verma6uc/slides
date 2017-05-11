@@ -1,0 +1,45 @@
+<section class="ONLY_TITLE_ASSESSMENT_2COLUMNS" $header>
+
+        <h2>$slide.getTitle().getText()</h2>
+
+<table border="1" cellpadding="1" cellspacing="1" >
+	<tbody>
+		<tr >
+			<td>&nbsp;</td>
+			<td>$slide.getList().getItems().get(0).getText()</td>
+			<td>$slide.getList().getItems().get(1).getText()</td>
+		</tr>
+		<tr >
+			<td style='padding: 20px;    word-break: break-word;;color: #e89d81;
+    width: 57%;'>$slide.getList().getItems().get(2).getText()</td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="0" /></td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="1" /></td>
+		</tr>
+		<tr style='vertical-align: middle !important; '>
+			<td style='padding: 20px;    word-break: break-word;;color: #e89d81;
+    width: 57%;'>$slide.getList().getItems().get(3).getText()</td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="0" /></td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="1" /></td>
+		</tr>
+		<tr style='vertical-align: middle !important; '>
+			<td style='padding: 20px;    word-break: break-word;color: #e89d81;
+    width: 57%;'>$slide.getList().getItems().get(4).getText()</td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="0" /></td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="1" /></td>
+		</tr>
+		<tr style='vertical-align: middle !important; '>
+			<td style='padding:20px;    word-break: break-word;;color: #e89d81;
+    width: 57%;'>$slide.getList().getItems().get(5).getText()</td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="0" /></td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="1" /></td>
+		</tr>
+		<tr style='vertical-align: middle !important; '>
+			<td style='padding: 20px;    word-break: break-word;;color: #e89d81;
+    width: 57%;'>$slide.getList().getItems().get(6).getText()</td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="0" /></td>
+			<td style='vertical-align: middle !important; '><input name="answer" type="radio" value="1" /></td>
+		</tr>
+	</tbody>
+</table></section>
+
+<p>&nbsp;</p>

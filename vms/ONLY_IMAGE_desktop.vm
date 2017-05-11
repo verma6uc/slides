@@ -1,0 +1,10 @@
+  <section class="ONLY_IMAGE" $header>
+						
+						
+						<p>
+						 <span class="image">
+						<img  src="$slide.getImage().getUrl()" alt="no_img" >
+						</span>
+						</p>
+						
+					</section>

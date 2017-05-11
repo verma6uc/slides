@@ -1,0 +1,6 @@
+<section class="ONLY_2BOX" $header>
+					<h2>$slide.getTitle().getText()</h2>
+					<br>
+						<h3>$slide.getTitle2().getText()</h3>
+					
+				</section>
