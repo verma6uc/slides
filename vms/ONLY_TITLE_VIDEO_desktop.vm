@@ -1,3 +1,2 @@
-
 <section class="ONLY_TITLE_VIDEO" $header data-background-video="$slide.getVideo().getUrl()">
 </section>

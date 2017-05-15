@@ -1,4 +1,3 @@
-
 <section class="SIMPLE_LIST___ONLY_TITLE_LIST" $header>
 						<h2>$slide.getTitle().getText()</h2>
 						<ul>

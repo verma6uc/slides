@@ -2,12 +2,12 @@
 <section  class="ONLY_TITLE_IMAGE" $header>
 					<div class='row'>
 					
-					<div class='col-lg-6'>
+					<div class='col-md-6'>
 											<h2>$slide.getTitle().getText()</h2>
 					
 					</div>
 					
-					<div class='col-lg-6'>
+					<div class='col-md-6'>
 											<img  src="$slide.getImage().getUrl()" alt="no_img" >
 					
 					</div>
