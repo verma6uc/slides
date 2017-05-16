@@ -5,14 +5,14 @@
 					
 					<div class='col-md-6'>
 											
-						$slide.getParagraph().getText()
-					
+						
+					<img  src="$slide.getImage().getUrl()" alt="no_img" >
 					
 					</div>
 					
 					<div class='col-md-6'>
-											<img  src="$slide.getImage().getUrl()" alt="no_img" >
-					
+											
+					$slide.getParagraph().getText()
 					</div>
 					</div>
 						

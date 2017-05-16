@@ -66,7 +66,7 @@ public class SlideUtils {
 			///fade/slide/convex/concave/zoom
 			String[] transitions = {"fade","slide","convex","concave","zoom"};
 			int rand = (new Random()).nextInt(5);
-			String header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cMSlide.getBackground()+"' ";
+			String header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cMSlide.getBackground()+"' data-background-image='"+cMSlide.getImage_BG()+"'";
 			context.put("header", header);
 			context.put("slide", cMSlide);
 			Template t = ve.getTemplate(templateVMFileName);
