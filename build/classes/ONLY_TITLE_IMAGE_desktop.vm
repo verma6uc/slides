@@ -3,7 +3,7 @@
 					<div class='row'>
 					
 					<div class='col-md-6'>
-											<h2>$slide.getTitle().getText()</h2>
+											<h1>$slide.getTitle().getText()</h1>
 					
 					</div>
 					

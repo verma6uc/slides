@@ -1,6 +1,6 @@
 <section class="ONLY_PARAGRAPH" $header>
 					
-					<p>
+					
 						$slide.getParagraph().getText()
-					</p>
+					
 				</section>
