@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -18,6 +19,8 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import com.istarindia.cms.lessons.CMSSlide;
 import com.viksitpro.core.utilities.DBUTILS;
@@ -79,9 +82,10 @@ public class SlideUtils {
 			if(!data1.contains("<table")) {
 				data1 = data1.replaceAll("<p", "<p class='fragment fade-up' ");
 			} 
-			//<b>
-			
 			data1 = data1.replaceAll("<b>", "");
+
+			Document doc = Jsoup.parse(data1);
+			data1 = doc.text();
 		}
 		return stringBuffer.toString();
 		

@@ -80,7 +80,8 @@
 			history : false,
 			center : true,
 			margin: 0,
-			
+			width: "90%",
+			height: "100%",
 			transition : 'slide', // none/fade/slide/convex/concave/zoom
 
 			// More info https://github.com/hakimel/reveal.js#dependencies
