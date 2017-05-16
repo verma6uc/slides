@@ -1,18 +1,10 @@
-
 <section class="ONLY_PARAGRAPH_IMAGE" $header>
-
 <div class='row'>
-					
 					<div class='col-md-6'>
-											
-						
-					<img  src="$slide.getImage().getUrl()" alt="no_img" >
-					
+						<img  src="$slide.getImage().getUrl()" alt="no_img" >
 					</div>
-					
 					<div class='col-md-6'>
-											
-					$slide.getParagraph().getText()
+					<div>	$slide.getParagraph().getText()<div>
 					</div>
 					</div>
 						
