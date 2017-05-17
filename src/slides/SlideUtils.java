@@ -81,11 +81,20 @@ public class SlideUtils {
 			
 			if(!data1.contains("<table")) {
 				data1 = data1.replaceAll("<p", "<p class='fragment fade-up' ");
+				
+				// handle table width 
+				
+				data1 = data1.replaceAll("width:500px", "");
 			} 
 			data1 = data1.replaceAll("<b>", "");
 
 			Document doc = Jsoup.parse(data1);
 			data1 = doc.text();
+			
+			
+			// handle table width 
+			
+			data1 = data1.replaceAll("width:500px", "");
 		}
 		return stringBuffer.toString();
 		

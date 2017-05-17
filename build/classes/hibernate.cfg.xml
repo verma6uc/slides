@@ -12,14 +12,14 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="myeclipse.connection.profile">org.postgresql.Driver</property>
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-		<property name="connection.password">X3m2p1z0!@#</property>
+		<property name="connection.password">root</property>
 		
 				<property name="show_sql">false</property>
 		
 		
 		
 		<property name="connection.username">postgres</property>
-		<property name="connection.url">jdbc:postgresql://192.168.0.106:5432/postgres</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
 		<property name="connection.driver_class">org.postgresql.Driver</property>
 		<mapping class="com.viksitpro.core.dao.entities.CollegeRecruiterMapping" />
 		<mapping class="com.viksitpro.core.dao.entities.JobRoleSkillBenchmark" />

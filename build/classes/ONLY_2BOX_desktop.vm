@@ -1,39 +1,24 @@
 <section class="ONLY_2BOX" $header>
-
-
-<div class='row'>
-					
-					<div class='col-md-6'>
-					<h1>$slide.getTitle().getText()</h1>
-					
-					<ul>
-						#foreach( $item in $slide.getList().getItems() )
-                       #if(!$item.getText().isEmpty())
-
-				<li class="fragment fade-up visible" data-fragment-index="0">$item.getText()</li>
-						
-				#end
-				#end
-			
-	 	
-					</ul>
-					</div>
-					
-					<div class='col-md-6'>
-					<h1 >$slide.getTitle2().getText()</h1>
-
-                    <ul>
-                    #foreach( $item in $slide.getList().getItems() )
-                       #if(!$item.getText().isEmpty())
-					
-
-			<li class="fragment fade-up visible" data-fragment-index="1">$item.getText()</li>
-						
-				
-				#end
-				#end
-					</ul>
-					</div>
-					</div>			
-					
-				</section>
+   <div class='row'>
+      <div class='col-md-6'>
+         <h1>$slide.getTitle().getText()</h1>
+         <ul>
+            #foreach( $item in $slide.getList().getItems() )
+            #if(!$item.getText().isEmpty())
+            <li class="fragment fade-up visible" data-fragment-index="0">$item.getText()</li>
+            #end
+            #end
+         </ul>
+      </div>
+      <div class='col-md-6'>
+         <h1 >$slide.getTitle2().getText()</h1>
+         <ul>
+            #foreach( $item in $slide.getList().getItems() )
+            #if(!$item.getText().isEmpty())
+            <li class="fragment fade-up visible" data-fragment-index="1">$item.getText()</li>
+            #end
+            #end
+         </ul>
+      </div>
+   </div>
+</section>
