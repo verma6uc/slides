@@ -70,6 +70,10 @@ public class SlideUtils {
 			String[] transitions = {"fade","slide","convex","concave","zoom"};
 			int rand = (new Random()).nextInt(5);
 			String header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cMSlide.getBackground()+"' data-background-image='"+cMSlide.getImage_BG()+"'";
+			if(cMSlide.getBackground().equalsIgnoreCase("#000000")) {
+				header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+cMSlide.getImage_BG()+"' data-background-color='#ffffff'";
+			}
+			
 			context.put("header", header);
 			context.put("slide", cMSlide);
 			Template t = ve.getTemplate(templateVMFileName);
