@@ -81,6 +81,8 @@ public class SlideUtils {
 			t.merge(context, writer);
 			String data1 = writer.toString();
 			System.out.println(data1);
+			data1 = data1.replaceAll("/content/media_upload\\?getfile=", "/video/");
+			System.err.println("data1"+data1);
 			stringBuffer.append(data1);
 			
 			if(!data1.contains("<table")) {
@@ -96,9 +98,9 @@ public class SlideUtils {
 			data1 = doc.text();
 			
 			
-			// handle table width 
+			//Fix image urls http://192.168.0.125:8080/video/salesSession1_4.png
 			
-			data1 = data1.replaceAll("width:500px", "");
+			
 		}
 		return stringBuffer.toString();
 		
