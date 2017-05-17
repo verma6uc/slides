@@ -40,7 +40,6 @@ public class SlideUtils {
 		
 		List<HashMap<String, Object>> data = util.executeQuery(sql);
 		
-		System.err.println(data.size());
 		
 		for (HashMap<String, Object> hashMap : data) {
 			CMSSlide cMSlide = new CMSSlide();
@@ -80,27 +79,31 @@ public class SlideUtils {
 			StringWriter writer = new StringWriter();
 			t.merge(context, writer);
 			String data1 = writer.toString();
-			System.out.println(data1);
+			data1 = data1.replaceAll("<p></p>", "");
 			data1 = data1.replaceAll("/content/media_upload\\?getfile=", "/video/");
-			System.err.println("data1"+data1);
-			stringBuffer.append(data1);
 			
-			if(!data1.contains("<table")) {
-				data1 = data1.replaceAll("<p", "<p class='fragment fade-up' ");
-				
-				// handle table width 
-				
-				data1 = data1.replaceAll("width:500px", "");
-			} 
-			data1 = data1.replaceAll("<b>", "");
 
-			Document doc = Jsoup.parse(data1);
-			data1 = doc.text();
+			//if(!data1.contains("<table")) {
+				data1 = data1.replaceAll("<b>", "");
+				data1 = data1.replaceAll("<p>", "<p class='fragment fade-up visible' >");
+				if(((int)hashMap.get("id")) == 626) {
+					System.err.println("data1"+data1);
+				}
+				
+			//} else {
+				data1 = data1.replaceAll("width:500px", "");
+			//}
+
+			//Document doc = Jsoup.parse(data1);
+			//data1 = doc.text();
 			
 			
 			//Fix image urls http://192.168.0.125:8080/video/salesSession1_4.png
-			
-			
+			if(templateVMFileName.contains("ONLY_TITLE_PARAGRAPH_cells_fragemented")) {
+				data1 = data1.replaceAll("<span style=\"font-size:22px\">", "<span class='fragment fade-up visible' style=\"font-size:22px\">");
+			}
+			stringBuffer.append(data1);
+
 		}
 		return stringBuffer.toString();
 		
