@@ -1,7 +1,10 @@
 package com.viksitpro.oldCMS.XML.Generators;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.Properties;
 import java.util.Random;
 
 import javax.xml.bind.JAXBContext;
@@ -26,8 +29,26 @@ public class LessonServices {
 
 	public String lessonHTMLfromLessonXML(int lessonID) {
 		StringBuffer stringBuffer = new StringBuffer();
-		String path = "/home/ab/Documents/lessonXMLs/";
+		////////
+		String path ="";
+		try {
+			Properties properties = new Properties();
+			String propertyFileName = "app.properties";
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propertyFileName);
+			if (inputStream != null) {
+				properties.load(inputStream);
+			} else {
+				throw new FileNotFoundException("property file '" + propertyFileName + "' not found in the classpath");
+			}
+			path = properties.getProperty("mediaLessonPath");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		///////
+	//	String path = "C:/root/lessonXMLs/";
 		path += "" + lessonID + ".xml";
+		System.out.println("-------------->>>>>>>>>>>>>>>>>>>>>>"+path);
 		File file = new File(path);  
         
 		try{
@@ -72,7 +93,8 @@ public class LessonServices {
 				
 				String header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cmsSlide.getBackground()+"' data-background-image='"+bg_image+"' data-background-size='"+type+"'";
 				if(cmsSlide.getBackground().equalsIgnoreCase("#000000")) {
-					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+cmsSlide.getImage_BG()+"' data-background-color='#ffffff'";						header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
+							
+					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
 				}
 				if(cmsSlide.getBackground().equalsIgnoreCase("null")) {
 					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";

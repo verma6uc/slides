@@ -93,7 +93,7 @@ public class SlideUtils {
 			
 			String header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cMSlide.getBackground()+"' data-background-image='"+bg_image+"' data-background-size='"+type+"'";
 			if(cMSlide.getBackground().equalsIgnoreCase("#000000")) {
-				header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+cMSlide.getImage_BG()+"' data-background-color='#ffffff'";					
+							
 				header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
 			}
 			if(cMSlide.getBackground().equalsIgnoreCase("null")) {
@@ -237,13 +237,13 @@ if(templateVMFileName.contains("ONLY_PARAGRAPH_TITLE")) {
 			cmSslides.add(cmsSlide);
 		}
 		cmsLesson.setSlides(cmSslides);
-		sql = "select * from lesson where id = (select p.lesson_id from presentation  as p where p.id = "+pptID+")";
+		sql = "select * from lesson where id = (select p.lesson_id from presentaion  as p where p.id = "+pptID+")";
 		List<HashMap<String, Object>> lesson = dbutils.executeQuery(sql);
 		cmsLesson.setLessonTitle(lesson.get(0).get("title").toString());
 		cmsLesson.setLessonDescription("NA");
 		cmsLesson.setStudentNotes("NA");
 		cmsLesson.setTeacherNotes("NA");
-		cmsLesson.setType(lesson.get(0).get("type").toString());
+		cmsLesson.setType("PRESENTATION");
 		try{
 			JAXBContext context = JAXBContext.newInstance(CMSLesson.class);
 			javax.xml.bind.Marshaller marshaller = context.createMarshaller();
