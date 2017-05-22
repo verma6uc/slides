@@ -89,6 +89,8 @@ public class CMSSlide {
 
 	}
 
+	int Id;
+	int order_id;
 	String image_BG;
 	String transition = "zoom";
 	CMSTitle title;
@@ -109,6 +111,23 @@ public class CMSSlide {
 
 	String audioUrl;
 	int slideDuration;
+
+	@XmlElement(name = "id")
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+	@XmlElement(name = "order_id")
+	public int getOrder_id() {
+		return order_id;
+	}
+
+	public void setOrder_id(int order_id) {
+		this.order_id = order_id;
+	}
 
 	@XmlElement(name = "slide_audio")
 	public String getAudioUrl() {

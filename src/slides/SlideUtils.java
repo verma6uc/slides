@@ -4,13 +4,17 @@
  */
 package slides;
 
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.io.IOUtils;
@@ -22,6 +26,7 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import com.istarindia.cms.lessons.CMSLesson;
 import com.istarindia.cms.lessons.CMSSlide;
 import com.viksitpro.core.utilities.DBUTILS;
 
@@ -205,4 +210,58 @@ if(templateVMFileName.contains("ONLY_PARAGRAPH_TITLE")) {
 			//System.out.println(data1);
 		}
 	}*/
+	
+	public String getLessonXML(int pptID){
+		java.io.StringWriter buffer = new StringWriter();
+		DBUTILS dbutils = new DBUTILS();
+		CMSLesson cmsLesson = new CMSLesson();
+		ArrayList<CMSSlide> cmSslides = new ArrayList<>();
+		String sql = "select * from slide where presentation_id="+pptID+" order by order_id";
+		List<HashMap<String, Object>> slides = dbutils.executeQuery(sql);
+		for(HashMap<String, Object> slide : slides){
+			CMSSlide cmsSlide = new CMSSlide();
+			String slide_xml = (String) slide.get("slide_text");
+			try{
+				JAXBContext context = JAXBContext.newInstance(CMSSlide.class);
+				String slide_text = slide_xml.replaceAll("<br />", " ").replaceAll("<br>", " ").replaceAll("&nbsp;", " ").replaceAll("&lt;br&gt;"," ").replaceAll("&lt;br /&gt;", " ");
+				InputStream in = IOUtils.toInputStream(slide_text, "UTF-8");
+				Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
+				cmsSlide = (CMSSlide) jaxbUnmarshaller.unmarshal(in);
+				cmsSlide.setId(Integer.parseInt(slide.get("id").toString()));
+				cmsSlide.setOrder_id(Integer.parseInt(slide.get("order_id").toString()));
+			} catch (JAXBException e) {
+				// TODO: handle exception
+			} catch (IOException e) {
+				// TODO: handle exception
+			}
+			cmSslides.add(cmsSlide);
+		}
+		cmsLesson.setSlides(cmSslides);
+		sql = "select * from lesson where id = (select p.lesson_id from presentation  as p where p.id = "+pptID+")";
+		List<HashMap<String, Object>> lesson = dbutils.executeQuery(sql);
+		cmsLesson.setLessonTitle(lesson.get(0).get("title").toString());
+		cmsLesson.setLessonDescription("NA");
+		cmsLesson.setStudentNotes("NA");
+		cmsLesson.setTeacherNotes("NA");
+		cmsLesson.setType(lesson.get(0).get("type").toString());
+		try{
+			JAXBContext context = JAXBContext.newInstance(CMSLesson.class);
+			javax.xml.bind.Marshaller marshaller = context.createMarshaller();
+			marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			marshaller.marshal(cmsLesson, buffer);
+		} catch (JAXBException e) {
+			// TODO: handle exception
+		}
+		return buffer.toString();
+	}
+	
+	public String getLessonHTML (int lessonID){
+		String LessonHTML = "";
+		String sql = "select id from presentation  where lesson_id = "+lessonID;
+		List<HashMap<String, Object>> presentations = (new DBUTILS()).executeQuery(sql);
+		for(HashMap<String, Object> presentation : presentations){
+			LessonHTML+=getSlideXML(Integer.parseInt(presentation.get("id").toString()));
+		}
+		return LessonHTML;
+	}
 }
