@@ -73,7 +73,9 @@
 	<script src="<%=basePath%>js/reveal.js"></script>
 
 	<script>
-		// More info https://github.com/hakimel/reveal.js#configuration
+	//Reveal.configure({ slideNumber: true });
+	//Reveal.configure({ slideNumber: 'c/t' });
+
 		Reveal.initialize({
 			controls : true,
 			progress : true,
