@@ -54,7 +54,7 @@ public class SlideUtils {
 				//e.printStackTrace();
 			}
 			String ext = "_desktop.vm";
-			System.out.println((String) hashMap.get("template"));
+			System.out.println((String) hashMap.get("template")+""+hashMap.get("id"));
 			String templateVMFileName = cMSlide.getTemplateName() + ext;
 			if (cMSlide.getTemplateName().equalsIgnoreCase("ONLY_TITLE_LIST")) {
 				templateVMFileName = cMSlide.getList().getList_type() + "___" + cMSlide.getTemplateName() + ext;
@@ -68,11 +68,36 @@ public class SlideUtils {
 			///fade/slide/convex/concave/zoom
 			String[] transitions = {"fade","slide","convex","concave","zoom"};
 			int rand = (new Random()).nextInt(5);
-			String header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cMSlide.getBackground()+"' data-background-image='"+cMSlide.getImage_BG()+"'";
+			/*String header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cMSlide.getBackground()+"' data-background-image='"+cMSlide.getImage_BG()+"'";
 			if(cMSlide.getBackground().equalsIgnoreCase("#000000")) {
 				header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+cMSlide.getImage_BG()+"' data-background-color='#ffffff'";
+			}*/
+			String bg_image = null;
+			String type="cover";
+			if(cMSlide.getImage_BG()!=null){
+				if(cMSlide.getImage_BG().contains(".png")){
+					bg_image = cMSlide.getImage_BG().replaceAll(".png","_desktop.png");
+				}
+				if(cMSlide.getImage_BG().contains(".gif")){
+					bg_image = cMSlide.getImage_BG();
+					type = "contain";
+					
+				}
+				 
 			}
 			
+			String header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cMSlide.getBackground()+"' data-background-image='"+bg_image+"' data-background-size='"+type+"'";
+			if(cMSlide.getBackground().equalsIgnoreCase("#000000")) {
+				header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+cMSlide.getImage_BG()+"' data-background-color='#ffffff'";						header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
+			}
+			if(cMSlide.getBackground().equalsIgnoreCase("null")) {
+				header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
+			}
+			if(cMSlide.getBackground().equalsIgnoreCase("none")) {
+				header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
+			}					
+			
+		
 			context.put("header", header);
 			context.put("slide", cMSlide);
 			Template t = ve.getTemplate(templateVMFileName);
@@ -83,14 +108,17 @@ public class SlideUtils {
 			data1 = data1.replaceAll("/content/media_upload\\?getfile=", "/video/");
 			
 
-			//if(!data1.contains("<table")) {
-				data1 = data1.replaceAll("<b>", "");
+			if(!data1.contains("<table")) {
+				
 				data1 = data1.replaceAll("<p>", "<p class='fragment fade-up visible' >");
+			}
 				if(((int)hashMap.get("id")) == 626) {
 					System.err.println("data1"+data1);
 				}
-				
-			//} else {
+				data1 = data1.replaceAll("<b>", "");
+				//data1 = data1.replaceAll("<ol>", "<ol class='fragment fade-up' >");
+		
+				// else {
 				data1 = data1.replaceAll("width:500px", "");
 			//}
 
@@ -100,8 +128,29 @@ public class SlideUtils {
 			
 			//Fix image urls http://192.168.0.125:8080/video/salesSession1_4.png
 			if(templateVMFileName.contains("ONLY_TITLE_PARAGRAPH_cells_fragemented")) {
-				data1 = data1.replaceAll("<td", "<td class='fragment fade-up visible' ");
+				data1 = data1.replaceAll("<span style=\"font-size:22px\">", "<span class='fragment fade-up ' style=\"font-size:22px\">");
+                
+				//data1 = data1.replaceAll("<td", "<td class='fragment fade-up visible' ");
+				//data1 = data1.replaceAll("<p>", "<p class='fragment fade-up' >");
 			}
+			
+if(templateVMFileName.contains("ONLY_PARAGRAPH_TITLE")) {
+				
+				data1 = data1.replaceAll("<ol>", "<ol class='fragment fade-up' >");
+				data1 = data1.replaceAll("<ul>", "<ul class='fragment fade-up' >");
+				data1 = data1.replaceAll("<h1>", "<h1 class='fragment fade-up' >");
+			}
+                   if(templateVMFileName.contains("ONLY_TITLE_PARAGRAPH")) {
+				
+				data1 = data1.replaceAll("<ol>", "<ol class='fragment fade-up' >");
+				data1 = data1.replaceAll("<ul>", "<ul class='fragment fade-up' >");
+				
+			}
+                   if(templateVMFileName.contains("ONLY_PARAGRAPH_IMAGE")) {
+       				
+       				data1 = data1.replaceAll("<ol>", "<ol class='fragment fade-up' >");
+       				data1 = data1.replaceAll("<ul>", "<ul class='fragment fade-up' >");
+              }
 			stringBuffer.append(data1);
 
 		}

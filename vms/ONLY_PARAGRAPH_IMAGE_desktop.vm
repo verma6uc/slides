@@ -1,9 +1,9 @@
 <section class="ONLY_PARAGRAPH_IMAGE" $header>
 <div class='row'>
-					<div class='col-md-6'>
+					<div class='col-md-6 fragment fade-up' data-fragment-index="0">
 						<img  src="$slide.getImage().getUrl()" alt="no_img" >
 					</div>
-					<div class='col-md-6'>
+					<div class='col-md-6' data-fragment-index="1">
 					<div>	$slide.getParagraph().getText()<div>
 					</div>
 					</div>

@@ -1,1 +1,1 @@
-<section class="NO_CONTENT" $header data-background='$slide.getImage_BG().replaceAll(".png","_desktop.png")'></section>
+<section class="NO_CONTENT" $header></section>

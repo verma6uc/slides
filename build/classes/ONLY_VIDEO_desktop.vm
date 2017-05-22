@@ -1,10 +1,11 @@
 <section class="ONLY_VIDEO" $header>
 <div class='row'>
-					
-					<div class='col-md-12'>
-					<video>
-					  <source data-src="$slide.getVideo().getUrl()" type="video/mp4" />
+					<div class='col-md-3'></div>
+					<div class='col-md-6 custom_video_style'>
+					<video controls>
+					  <source  data-src="$slide.getVideo().getUrl()" type="video/mp4" />
 					</video>
 					</div>
+					<div class='col-md-3'></div>
 					</div>
 </section>
