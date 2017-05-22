@@ -100,7 +100,7 @@ public class SlideUtils {
 			
 			//Fix image urls http://192.168.0.125:8080/video/salesSession1_4.png
 			if(templateVMFileName.contains("ONLY_TITLE_PARAGRAPH_cells_fragemented")) {
-				data1 = data1.replaceAll("<span style=\"font-size:22px\">", "<span class='fragment fade-up visible' style=\"font-size:22px\">");
+				data1 = data1.replaceAll("<td", "<td class='fragment fade-up visible' ");
 			}
 			stringBuffer.append(data1);
 
