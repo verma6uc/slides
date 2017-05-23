@@ -71,8 +71,8 @@ public class LessonServices {
 				VelocityContext context = new VelocityContext();
 				int cnt = 1;
 				///fade/slide/convex/concave/zoom
-				String[] transitions = {"fade","slide","convex","concave","zoom"};
-				int rand = (new Random()).nextInt(5);
+				String[] transitions = {"fade","slide","convex","concave","zoom","cube","slide-in fade-out"};
+				int rand = (new Random()).nextInt(7);
 				
 				String bg_image = null;
 				String type="cover";

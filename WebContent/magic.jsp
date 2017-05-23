@@ -76,7 +76,9 @@
 			width: "90%",
 			height: "100%",
 			transition : 'slide', // none/fade/slide/convex/concave/zoom
-
+			transitionSpeed: 'slow',
+			showSlideNumber: 'all',
+			slideNumber: 'c/t',
 			// More info https://github.com/hakimel/reveal.js#dependencies
 			dependencies : [ {
 				src : '<%=basePath%>lib/js/classList.js',
