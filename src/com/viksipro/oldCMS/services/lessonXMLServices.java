@@ -1,10 +1,13 @@
 package com.viksipro.oldCMS.services;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 
 import slides.SlideUtils;
 
@@ -18,7 +21,7 @@ public class lessonXMLServices {
 	
 	public String lessonXML(int lessonID){
 		int pptID=626;
-		String sql = "select * from presentation where lesson_id = "+lessonID;
+		String sql = "select * from presentaion where lesson_id = "+lessonID;
 		for(HashMap<String, Object> presentation : (new com.viksitpro.core.utilities.DBUTILS()).executeQuery(sql)){
 			pptID = Integer.parseInt(presentation.get("id").toString());
 		}
@@ -29,7 +32,24 @@ public class lessonXMLServices {
 	
 	public boolean createlessonXMLFile(String lessonXML, int lessonID){
 		boolean success = false;
-		String path = "/home/ab/Documents/lessonXMLs/";
+	////////
+			String path ="";
+			try {
+				Properties properties = new Properties();
+				String propertyFileName = "app.properties";
+				InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propertyFileName);
+				if (inputStream != null) {
+					properties.load(inputStream);
+				} else {
+					throw new FileNotFoundException("property file '" + propertyFileName + "' not found in the classpath");
+				}
+				path = properties.getProperty("mediaLessonPath");
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			///////
+		//String path = "C:/root/lessonXMLs1/";
 		path+=""+lessonID+".xml";
 		System.err.println(path);
 		File file = new File(path);
@@ -50,7 +70,7 @@ public class lessonXMLServices {
 	
 	//to write xml files to local file system
 	public void generateAllLessonXMLFiles(){
-		String sql = "select lesson_id from presentation ORDER BY lesson_id";
+		String sql = "select lesson_id from presentaion ORDER BY lesson_id";
 		List<HashMap<String, Object>> lessons = (new com.viksitpro.core.utilities.DBUTILS()).executeQuery(sql);
 		lessonXMLServices xmlServices = new lessonXMLServices();
 		//System.out.println(slideUtils.getLessonXML(626));

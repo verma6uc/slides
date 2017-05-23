@@ -71,6 +71,7 @@
 			progress : true,
 			history : false,
 			center : true,
+			autoPlayMedia : true,
 			margin: 0,
 			width: "90%",
 			height: "100%",

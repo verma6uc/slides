@@ -73,10 +73,7 @@ public class LessonServices {
 				///fade/slide/convex/concave/zoom
 				String[] transitions = {"fade","slide","convex","concave","zoom"};
 				int rand = (new Random()).nextInt(5);
-				/*String header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cMSlide.getBackground()+"' data-background-image='"+cMSlide.getImage_BG()+"'";
-				if(cMSlide.getBackground().equalsIgnoreCase("#000000")) {
-					header = "id='"+hashMap.get("id")+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+cMSlide.getImage_BG()+"' data-background-color='#ffffff'";
-				}*/
+				
 				String bg_image = null;
 				String type="cover";
 				if(cmsSlide.getImage_BG()!=null){
@@ -118,44 +115,38 @@ public class LessonServices {
 					
 					data1 = data1.replaceAll("<p>", "<p class='fragment fade-up visible' >");
 				}
-					if((cmsSlide.getId()) == 626) {
-						System.err.println("data1"+data1);
-					}
+					
 					data1 = data1.replaceAll("<b>", "");
 					//data1 = data1.replaceAll("<ol>", "<ol class='fragment fade-up' >");
 			
-					// else {
+					
 					data1 = data1.replaceAll("width:500px", "");
-				//}
+			
 
-				//Document doc = Jsoup.parse(data1);
-				//data1 = doc.text();
+			
 				
 				
 				//Fix image urls http://192.168.0.125:8080/video/salesSession1_4.png
 				if(templateVMFileName.contains("ONLY_TITLE_PARAGRAPH_cells_fragemented")) {
 					data1 = data1.replaceAll("<span style=\"font-size:22px\">", "<span class='fragment fade-up ' style=\"font-size:22px\">");
 	                
-					//data1 = data1.replaceAll("<td", "<td class='fragment fade-up visible' ");
+					data1 = data1.replaceAll("<td", "<td class='fragment fade-up visible' ");
 					//data1 = data1.replaceAll("<p>", "<p class='fragment fade-up' >");
 				}
 				
-	if(templateVMFileName.contains("ONLY_PARAGRAPH_TITLE")) {
+	             if(templateVMFileName.contains("ONLY_PARAGRAPH_TITLE")) {
 					
-					data1 = data1.replaceAll("<ol>", "<ol class='fragment fade-up' >");
-					data1 = data1.replaceAll("<ul>", "<ul class='fragment fade-up' >");
+	            	data1 = data1.replaceAll("<li>", "<li class='fragment fade-up' >");
 					data1 = data1.replaceAll("<h1>", "<h1 class='fragment fade-up' >");
 				}
 	                   if(templateVMFileName.contains("ONLY_TITLE_PARAGRAPH")) {
 					
-					data1 = data1.replaceAll("<ol>", "<ol class='fragment fade-up' >");
-					data1 = data1.replaceAll("<ul>", "<ul class='fragment fade-up' >");
+	                	   data1 = data1.replaceAll("<li>", "<li class='fragment fade-up' >");
 					
 				}
 	                   if(templateVMFileName.contains("ONLY_PARAGRAPH_IMAGE")) {
 	       				
-	       				data1 = data1.replaceAll("<ol>", "<ol class='fragment fade-up' >");
-	       				data1 = data1.replaceAll("<ul>", "<ul class='fragment fade-up' >");
+	                	   data1 = data1.replaceAll("<li>", "<li class='fragment fade-up' >");
 	              }
 				stringBuffer.append(data1);
 
