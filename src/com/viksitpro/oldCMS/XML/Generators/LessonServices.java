@@ -114,6 +114,7 @@ public class LessonServices {
 				if(!data1.contains("<table")) {
 					
 					data1 = data1.replaceAll("<p>", "<p class='fragment fade-up visible' >");
+					System.out.println(">>>>>>>---->>>>>"+data1.toString());
 				}
 					
 					data1 = data1.replaceAll("<b>", "");

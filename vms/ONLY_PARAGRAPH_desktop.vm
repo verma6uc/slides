@@ -1,6 +1,8 @@
 <section class="ONLY_PARAGRAPH" $header>
 					
 					
+						#if(!$slide.getParagraph().getText().isEmpty())
 						$slide.getParagraph().getText()
+					    #end
 					
 				</section>

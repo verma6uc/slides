@@ -109,6 +109,49 @@
 				async : true
 			} ]
 		});
+	
+		Reveal.addEventListener( 'ready', function( event ) {
+			var height = document.getElementsByClassName("slides")[0].style.height;
+			var width =	document.getElementsByClassName("slides")[0].style.width;
+			
+			var x = document.getElementsByTagName("section");
+			var i;
+			for (i = 0; i < x.length; i++) {
+			    
+				 x[i].style.height = height;
+					x[i].style.width = width;
+					x[i].style.top = null;
+					x[i].style.display = table;
+
+			}
+			
+		} );
+	
+		Reveal.addEventListener( 'slidechanged', function( event ) {
+			console.log('slide chnagd');
+			/* var height = $('.slides').css('height');
+			var width = $('.slides').css('width'); */
+			var height = document.getElementsByClassName("slides")[0].style.height;
+			var width =	document.getElementsByClassName("slides")[0].style.width;
+			
+			 document.getElementsByClassName("present")[0].style.height = height;
+				document.getElementsByClassName("present")[0].style.width = width;
+
+			//$('.present').css('height', height);
+			//$('.present').css('width', width);
+			
+			var x = document.getElementsByTagName("section");
+var i;
+for (i = 0; i < x.length; i++) {
+    
+	 x[i].style.height = height;
+		x[i].style.width = width;
+		x[i].style.top = null;
+		x[i].style.display = table;
+
+
+}
+		} );
 	</script>
 
 </body>

@@ -1,4 +1,6 @@
 <section class="ONLY_TITLE_PARAGRAPH_cells_fragemented" $header>
 					<h1>$slide.getTitle().getText()</h1>
-					$slide.getParagraph().getText()
+					#if(!$slide.getParagraph().getText().isEmpty())
+						$slide.getParagraph().getText()
+					    #end
 				</section>

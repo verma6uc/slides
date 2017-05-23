@@ -50,6 +50,7 @@ font-family: 'Lato', sans-serif;
 font-family: 'Lato', sans-serif;
   font-weight: 600;
   line-height: 1.2;
+ 
   letter-spacing: normal;
   text-shadow: none;
   word-wrap: break-word; }
@@ -68,6 +69,9 @@ font-family: 'Lato', sans-serif;
 
 .reveal h1 {
   text-shadow: none; }
+.h1_custom_center   {
+	margin-top: 15%!important;
+	}
 
 /*********************************************
  * OTHER
@@ -301,136 +305,135 @@ font-family: 'Lato', sans-serif;
   
   .ONLY_TITLE{
   
-  text-align: left!important;
-  top: 0px!important; 
+ text-align: left!important;
   }
    .SIMPLE_LIST___ONLY_TITLE_LIST{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_TITLE_LIST{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
   
   .ONLY_2BOX{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_2TITLE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_2TITLE_IMAGE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
   
    .ONLY_2TITLE_TREE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_IMAGE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_LIST{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
   
   .ONLY_LIST_NUMBERED{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_PARAGRAPH{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_PARAGRAPH_IMAGE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
   .ONLY_PARAGRAPH_TITLE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
   .ONLY_TITLE_IMAGE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
   .ONLY_TITLE_LIST_NUMBERED{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
   .ONLY_TITLE_PARAGRAPH_cells_fragemented{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_TITLE_PARAGRAPH{
   
   text-align: left!important;
-  top: 0px!important; 
+
   } 
   .ONLY_TITLE_PARAGRAPH_IMAGE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_TITLE_TABLE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_TITLE_TREE{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_TITLE_VIDEO{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
    .ONLY_VIDEO{
   
   text-align: left!important;
-  top: 0px!important; 
+
   }
 .ONLY_2TITLE_2TABLE{
 	 text-align: left!important;
-  top: 0px!important; 
+
 }
 .ONLY_2TITLE_5TABLE{
 	 text-align: left!important;
-     top: 0px!important; 
+   
 }
 .ONLY_2TITLE_TABLE{
 	text-align: left!important;
-     top: 0px!important; 
+   
 }
 .ONLY_TITLE_ASSESSMENT_2COLUMNS{
 	text-align: left!important;
-     top: 0px!important; 
+   
 }
 .ONLY_TITLE_ASSESSMENT_5COLUMNS{
 	text-align: left!important;
-     top: 0px!important; 
+   
 }
 
 
