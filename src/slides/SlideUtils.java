@@ -114,6 +114,7 @@ public class SlideUtils {
 			data1 = data1.replaceAll("<p></p>", "");
 			data1 = data1.replaceAll("/content/media_upload\\?getfile=", "/video/");
 			
+			data1 = data1.replaceAll("/video/", "http://api.talentify.in/video/");
 
 			if(!data1.contains("<table")) {
 				
