@@ -13,6 +13,7 @@
 	<ul id="toc">
 		<% 
 		List<Course> courses = (new CourseDAO()).findAll();
+		System.out.println("---index.jsp>>>>");
 		for(Course course: courses ) { %>
 		<li><span><%=course.getCourseName() %></span> <a target="_blank"  href="/index3.jsp?course_id=<%=course.getId() %>"><%=course.getId() %></a></li>
 		<% } %>
