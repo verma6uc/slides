@@ -110,30 +110,42 @@
 			} ]
 		});
 	
+	
 		Reveal.addEventListener( 'ready', function( event ) {
+			console.log('ready slide chnagd');
 			var height = document.getElementsByClassName("slides")[0].style.height;
 			var width =	document.getElementsByClassName("slides")[0].style.width;
 			
-			var x = document.getElementsByTagName("section");
+			document.getElementsByClassName("present")[0].style.height = height;
+			document.getElementsByClassName("present")[0].style.width = width;
+			
+			var x = document.getElementsByClassName("section");
 			var i;
 			for (i = 0; i < x.length; i++) {
 			    
-				 x[i].style.height = height;
+				    x[i].style.height = height;
 					x[i].style.width = width;
-					x[i].style.top = null;
-					x[i].style.display = 'table';
+					x[i].style.top = window.innerHeight / 2;
+					
+					var slide_id=x[i].id;
+					var HtmlElementSlideHolder =  document.getElementById('slide_'+slide_id);
+					var size =HtmlElementSlideHolder.dataset.length;
+					console.log(size);
+					x[i].style.fontSize = size+'%';
+					
 
 			}
 			
 		} );
+		
 	
 		Reveal.addEventListener( 'slidechanged', function( event ) {
 			console.log('slide chnagd');
-			/* var height = $('.slides').css('height');
-			var width = $('.slides').css('width'); */
+		
 			var height = document.getElementsByClassName("slides")[0].style.height;
 			var width =	document.getElementsByClassName("slides")[0].style.width;
 			
+
 			document.getElementsByClassName("present")[0].style.height = height;
 			document.getElementsByClassName("present")[0].style.width = width;
 			
@@ -143,8 +155,7 @@
 			for (i = 0; i < x.length; i++) {			    
 				x[i].style.height = height;
 				x[i].style.width = width;
-				x[i].style.top = null;
-				x[i].style.display = 'table';
+				x[i].style.top = window.innerHeight / 2;
 				
 				var slide_id=x[i].id;
 				var HtmlElementSlideHolder =  document.getElementById('slide_'+slide_id);
@@ -153,6 +164,7 @@
 				x[i].style.fontSize = size+'%';
 				
 			}
+
 		} );
 	</script>
 
