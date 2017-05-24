@@ -18,13 +18,13 @@
 	<h1>List of Lessons for <%=course.getCourseName() %></h1>
 	<ul id="toc">
 		<% 
-		System.out.println("--index3.jsp-->>>>");
+		
 		for(Module module: course.getModules() ) { 
-			System.out.println("--module-->>>>"+module.getModuleName());
+			
 		for(Cmsession cmsession:  module.getCmsessions()) {
-			System.out.println("--cmsession-->>>>"+cmsession.getTitle());
+			
 			for(Lesson lesson : cmsession.getLessons()) {
-				System.out.println("--lesson-->>>>"+lesson.getTitle());
+				
 	
 				String path ="";
 				try {
@@ -41,7 +41,7 @@
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				System.out.println("---->>>>"+path);
+				
 		File f = new File(path+"/"+lesson.getId()+".xml");
 		if(f.exists() && !f.isDirectory()) {
 		

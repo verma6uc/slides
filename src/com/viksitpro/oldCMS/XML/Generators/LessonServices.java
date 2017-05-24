@@ -75,29 +75,33 @@ public class LessonServices {
 				int rand = (new Random()).nextInt(7);
 				
 				String bg_image = null;
+				String bgImage = "";
 				String type="cover";
 				if(cmsSlide.getImage_BG()!=null){
 					if(cmsSlide.getImage_BG().contains(".png")){
 						bg_image = cmsSlide.getImage_BG().replaceAll(".png","_desktop.png");
+						bgImage = "data-background-image='"+bg_image+"'";
+						
 					}
 					if(cmsSlide.getImage_BG().contains(".gif")){
 						bg_image = cmsSlide.getImage_BG();
 						type = "contain";
-						
+						bgImage = "data-background-image='"+bg_image+"'";
 					}
+					
 					 
 				}
 				
-				String header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cmsSlide.getBackground()+"' data-background-image='"+bg_image+"' data-background-size='"+type+"'";
+				String header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"' data-background-color='"+cmsSlide.getBackground()+"' "+bgImage+" data-background-size='"+type+"'";
 				if(cmsSlide.getBackground().equalsIgnoreCase("#000000")) {
 							
-					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
+					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   "+bgImage+"  data-background-color='#ffffff' data-background-size='"+type+"'";
 				}
 				if(cmsSlide.getBackground().equalsIgnoreCase("null")) {
-					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
+					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   "+bgImage+"  data-background-color='#ffffff' data-background-size='"+type+"'";
 				}
 				if(cmsSlide.getBackground().equalsIgnoreCase("none")) {
-					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   data-background-image='"+bg_image+"' data-background-color='#ffffff' data-background-size='"+type+"'";
+					header = "id='"+cmsSlide.getId()+"' data-background-transition='"+transitions[rand]+"'   "+bgImage+" data-background-color='#ffffff' data-background-size='"+type+"'";
 				}					
 				
 			
@@ -114,7 +118,7 @@ public class LessonServices {
 				if(!data1.contains("<table")) {
 					
 					data1 = data1.replaceAll("<p>", "<p class='fragment fade-up visible' >");
-					System.out.println(">>>>>>>---->>>>>"+data1.toString());
+					
 				}
 					
 					data1 = data1.replaceAll("<b>", "");
@@ -148,6 +152,12 @@ public class LessonServices {
 	                   if(templateVMFileName.contains("ONLY_PARAGRAPH_IMAGE")) {
 	       				
 	                	   data1 = data1.replaceAll("<li>", "<li class='fragment fade-up' >");
+	              }
+	                   
+	                   if(templateVMFileName.contains("ONLY_2BOX")) {
+		       				
+	                	
+	                	   data1 = data1.replaceAll("<p class='fragment fade-up visible' >", "<p>");
 	              }
 				stringBuffer.append(data1);
 
