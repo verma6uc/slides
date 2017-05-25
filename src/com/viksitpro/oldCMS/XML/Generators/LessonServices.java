@@ -31,7 +31,7 @@ public class LessonServices {
 
 	public String lessonHTMLfromLessonXML(int lessonID) {
 		StringBuffer stringBuffer = new StringBuffer();
-		////////
+		
 		String path = "";
 		try {
 			Properties properties = new Properties();
@@ -47,10 +47,9 @@ public class LessonServices {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		///////
-		// String path = "C:/root/lessonXMLs/";
+		
 		path += "" + lessonID + ".xml";
-		//System.out.println("-------------->>>>>>>>>>>>>>>>>>>>>>" + path);
+	
 		File file = new File(path);
 
 		try {
@@ -85,8 +84,7 @@ public class LessonServices {
 					if (cmsSlide.getImage_BG().contains(".gif")) {
 						bg_image = cmsSlide.getImage_BG();
 						type = "contain";
-
-						bgImage = "data-background-image='"+bg_image+"'";
+                        bgImage = "data-background-image='"+bg_image+"'";
 					}
 	
 					 
@@ -120,7 +118,8 @@ public class LessonServices {
 
 				if (!data1.contains("<table")) {
 
-					data1 = data1.replaceAll("<p>", "<p class='fragment fade-up visible' >");
+					data1 = data1.replaceAll("<p>", "<p class='fragment fade-up'>");
+					
 
 				}
 
@@ -129,10 +128,11 @@ public class LessonServices {
 				data1 = data1.replaceAll("width:500px", "");
 
 				if (templateVMFileName.contains("ONLY_TITLE_PARAGRAPH_cells_fragemented")) {
-					data1 = data1.replaceAll("<span style=\"font-size:22px\">",
-							"<span class='fragment fade-up ' style=\"font-size:22px\">");
-
-					data1 = data1.replaceAll("<td", "<td class='fragment fade-up visible' ");
+				   // data1 = data1.replaceAll("<span style=\"font-size:22px\">", "<span class='fragment fade-up ' style=\"font-size:22px\">");
+					
+					  data1 = data1.replaceAll("<td", "<td class='fragment fade-up visible' style=' border: 1px solid;'");
+					  data1 = data1.replaceAll("<th scope=\"row\"", "<th scope='row' style='border: 1px solid;background: lightgray;'");
+					  data1 = data1.replaceAll("<th scope=\"col\"", "<th scope='row' style='border: 1px solid;background: lightgray;'");
 				}
 
 				if (templateVMFileName.contains("ONLY_PARAGRAPH_TITLE")) {
@@ -141,30 +141,31 @@ public class LessonServices {
 					data1 = data1.replaceAll("<h1>", "<h1 class='fragment fade-up' >");
 				}
 
-	                   if(templateVMFileName.contains("ONLY_TITLE_PARAGRAPH")) {
+	            if(templateVMFileName.contains("ONLY_TITLE_PARAGRAPH")) {
 					
 	                	   data1 = data1.replaceAll("<li>", "<li class='fragment fade-up' >");
 					
 				}
-	                   if(templateVMFileName.contains("ONLY_PARAGRAPH_IMAGE")) {
+	            if(templateVMFileName.contains("ONLY_PARAGRAPH_IMAGE")) {
 	       				
 	                	   data1 = data1.replaceAll("<li>", "<li class='fragment fade-up' >");
-	              }
+	            }
 	                   
-	                   if(templateVMFileName.contains("ONLY_2BOX")) {
+	            if(templateVMFileName.contains("ONLY_2BOX")) {
 		       				
-	                	
-	                	   data1 = data1.replaceAll("<p class='fragment fade-up visible' >", "<p>");
-	              }
+	                	data1 = data1.replaceAll("<p class='fragment fade-up'>", "<p>");
+	            }
 				
 				stringBuffer.append(data1);
 				Document doc = Jsoup.parse(stringBuffer.toString());
 				int length = doc.text().length();
-				if(cmsSlide.getId() == 5889){
+				if(cmsSlide.getId() == 981868){
 					System.err.println("doc.text().length()------->"+doc.text().length());
 				}
 				if(length<500) {
 					length = 140;
+				}else if(length>2070) {
+					length = 90;
 				} else {
 					length = 100;
 				}

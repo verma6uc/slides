@@ -71,7 +71,7 @@
 			progress : true,
 			history : false,
 			center : true,
-			autoPlayMedia : true,
+			autoPlayMedia : false,
 			margin: 0,
 			width: "90%",
 			height: "100%",
@@ -125,13 +125,15 @@
 			    
 				    x[i].style.height = height;
 					x[i].style.width = width;
-					x[i].style.top = window.innerHeight / 2;
+					
 					
 					var slide_id=x[i].id;
 					var HtmlElementSlideHolder =  document.getElementById('slide_'+slide_id);
 					var size =HtmlElementSlideHolder.dataset.length;
 					console.log(size);
 					x[i].style.fontSize = size+'%';
+					x[i].style.top = null;
+				//	x[i].style.top = window.innerHeight/5+'px';
 					
 
 			}
@@ -155,13 +157,15 @@
 			for (i = 0; i < x.length; i++) {			    
 				x[i].style.height = height;
 				x[i].style.width = width;
-				x[i].style.top = window.innerHeight / 2;
+				
 				
 				var slide_id=x[i].id;
 				var HtmlElementSlideHolder =  document.getElementById('slide_'+slide_id);
 				var size =HtmlElementSlideHolder.dataset.length;
 				console.log(size);
 				x[i].style.fontSize = size+'%';
+				x[i].style.top = null;
+				//x[i].style.top = window.innerHeight/5+'px';
 				
 			}
 
