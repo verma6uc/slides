@@ -159,13 +159,7 @@ public class LessonServices {
 				
 				stringBuffer.append(data1);
 				Document doc = Jsoup.parse(stringBuffer.toString());
-				Document doc1 = Jsoup.parse(cmsSlide.getParagraph().toString());
-				
-				Elements tbody = doc1.select("tbody");
-				Elements els = tbody.select("tr");
-				System.out.println("--->"+els.size());
-				
-				int length = doc.text().length();
+			    int length = doc.text().length();
 			
 				if(cmsSlide.getId() == 981868){
 					System.err.println("doc.text().length()------->"+doc.text().length());
