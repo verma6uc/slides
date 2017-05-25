@@ -138,7 +138,7 @@
 						 x[i].style.verticalAlign='middle';
 						 x[i].style.display='table-cell';
 					}else{
-						x[i].style.top = null;
+						x[i].style.top = '9%';
 					}
 					
 
@@ -180,7 +180,7 @@
 					 x[i].style.verticalAlign='middle';
 					 x[i].style.display='table-cell';
 				}else{
-					x[i].style.top = null;
+					x[i].style.top = '9%';
 				}
 				
 				

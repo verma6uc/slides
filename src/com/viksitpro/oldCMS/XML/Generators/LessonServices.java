@@ -164,8 +164,6 @@ public class LessonServices {
 				}
 				if(length<500) {
 					length = 140;
-				}else if(length>2070) {
-					length = 90;
 				} else {
 					length = 100;
 				}
@@ -179,6 +177,7 @@ public class LessonServices {
 			}
 		} catch (JAXBException e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return stringBuffer.toString();
 	}
