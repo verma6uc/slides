@@ -141,8 +141,8 @@
 						x[i].style.top = null;
 					}
 					else{
-						
-						x[i].style.top = '9%';
+						//x[i].style.top = null;
+						x[i].style.top = '5%';
 					}
 					
 
@@ -179,7 +179,7 @@
 				
 				
 				if(templateName ==='only_title'){
-					x[i].style.fontSize = size+'%';
+					 x[i].style.fontSize = size+'%';
 					 x[i].style.top = window.innerHeight/3+'px';;
 					 x[i].style.verticalAlign='middle';
 					 x[i].style.display='table-cell';
@@ -187,8 +187,8 @@
 					x[i].style.top = null;
 				}
 				else{
-					
-					x[i].style.top = '9%';
+				//	x[i].style.top = null;
+					x[i].style.top = '5%';
 				}
 				
 				

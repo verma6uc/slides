@@ -187,7 +187,7 @@ font-family: 'Lato', sans-serif;
   text-align: left;
   padding: 0.2em 0.5em 0.2em 0.5em;
   border-bottom: 1px solid; 
-  font-size: 0.75em;
+  font-size: 0.60em;
   }
 
 .reveal table th[align="center"],
@@ -445,7 +445,7 @@ font-family: 'Lato', sans-serif;
   }
 .ONLY_2TITLE  .header-content {
     position: absolute;
-    bottom: 0;
+    bottom: 5%;
     right: 0;
     width: 100%;
     text-align: right;
@@ -523,3 +523,4 @@ blockquote em{
 .reveal .slide-number {
   font-size: 24pt;
   color: #ffffff; }
+  
