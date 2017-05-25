@@ -137,7 +137,11 @@
 						 x[i].style.top = window.innerHeight/3+'px';;
 						 x[i].style.verticalAlign='middle';
 						 x[i].style.display='table-cell';
-					}else{
+					}else if(templateName ==='only_video'){
+						x[i].style.top = null;
+					}
+					else{
+						
 						x[i].style.top = '9%';
 					}
 					
@@ -173,13 +177,17 @@
 				console.log(templateName);
 				console.log(size);
 				
-				//x[i].style.top = null;
+				
 				if(templateName ==='only_title'){
 					x[i].style.fontSize = size+'%';
 					 x[i].style.top = window.innerHeight/3+'px';;
 					 x[i].style.verticalAlign='middle';
 					 x[i].style.display='table-cell';
-				}else{
+				}else if(templateName ==='only_video'){
+					x[i].style.top = null;
+				}
+				else{
+					
 					x[i].style.top = '9%';
 				}
 				
