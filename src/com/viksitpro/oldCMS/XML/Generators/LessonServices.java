@@ -169,7 +169,7 @@ public class LessonServices {
 				} else {
 					length = 100;
 				}
-				stringBuffer.append("<div class='hidden_element' id='slide_"+cmsSlide.getId()+"' data-slide_id='"+cmsSlide.getId()+"' data-length='"+length+"' ></div>");
+				stringBuffer.append("<div class='hidden_element' id='slide_"+cmsSlide.getId()+"' data-template='"+cmsSlide.getTemplateName().toLowerCase()+"' data-slide_id='"+cmsSlide.getId()+"' data-length='"+length+"' ></div>");
 
 				
 				

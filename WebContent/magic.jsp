@@ -112,28 +112,34 @@
 	
 	
 		Reveal.addEventListener( 'ready', function( event ) {
-			console.log('ready slide chnagd');
+		//	console.log('ready slide chnagd');
 			var height = document.getElementsByClassName("slides")[0].style.height;
 			var width =	document.getElementsByClassName("slides")[0].style.width;
 			
 			document.getElementsByClassName("present")[0].style.height = height;
 			document.getElementsByClassName("present")[0].style.width = width;
-			
+			document.getElementsByClassName("slides")[0].style.display = 'table';
 			var x = document.getElementsByClassName("section");
 			var i;
 			for (i = 0; i < x.length; i++) {
-			    
 				    x[i].style.height = height;
 					x[i].style.width = width;
-					
-					
 					var slide_id=x[i].id;
 					var HtmlElementSlideHolder =  document.getElementById('slide_'+slide_id);
 					var size =HtmlElementSlideHolder.dataset.length;
+					var templateName =HtmlElementSlideHolder.dataset.template;
+					console.log(templateName);
 					console.log(size);
-					x[i].style.fontSize = size+'%';
-					x[i].style.top = null;
-				//	x[i].style.top = window.innerHeight/5+'px';
+					
+					
+					if(templateName ==='only_title'){
+						x[i].style.fontSize = size+'%';
+						 x[i].style.top = window.innerHeight/3+'px';;
+						 x[i].style.verticalAlign='middle';
+						 x[i].style.display='table-cell';
+					}else{
+						x[i].style.top = null;
+					}
 					
 
 			}
@@ -142,7 +148,7 @@
 		
 	
 		Reveal.addEventListener( 'slidechanged', function( event ) {
-			console.log('slide chnagd');
+		//	console.log('slide chnagd');
 		
 			var height = document.getElementsByClassName("slides")[0].style.height;
 			var width =	document.getElementsByClassName("slides")[0].style.width;
@@ -151,6 +157,7 @@
 			document.getElementsByClassName("present")[0].style.height = height;
 			document.getElementsByClassName("present")[0].style.width = width;
 			
+		
 
 			var x = document.getElementsByTagName("section");
 			var i;
@@ -162,10 +169,20 @@
 				var slide_id=x[i].id;
 				var HtmlElementSlideHolder =  document.getElementById('slide_'+slide_id);
 				var size =HtmlElementSlideHolder.dataset.length;
+				var templateName =HtmlElementSlideHolder.dataset.template;
+				console.log(templateName);
 				console.log(size);
-				x[i].style.fontSize = size+'%';
-				x[i].style.top = null;
-				//x[i].style.top = window.innerHeight/5+'px';
+				
+				//x[i].style.top = null;
+				if(templateName ==='only_title'){
+					x[i].style.fontSize = size+'%';
+					 x[i].style.top = window.innerHeight/3+'px';;
+					 x[i].style.verticalAlign='middle';
+					 x[i].style.display='table-cell';
+				}else{
+					x[i].style.top = null;
+				}
+				
 				
 			}
 

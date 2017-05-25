@@ -1,6 +1,6 @@
 <section class="ONLY_2BOX" $header>
    <div class='row'>
-      <div class='col-md-6'>
+      <div class='col-md-5'>
          <h1>$slide.getTitle().getText()</h1>
          <ul>
             #if($slide.getList().getItems().size()>6)
@@ -15,7 +15,8 @@
              #end
          </ul>
       </div>
-      <div class='col-md-6'>
+      <div class='col-md-2'> </div>
+      <div class='col-md-5'>
          <h1 >$slide.getTitle2().getText()</h1>
          <ul>
             #if($slide.getList().getItems().size()>7)
