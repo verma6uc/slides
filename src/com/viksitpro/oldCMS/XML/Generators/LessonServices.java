@@ -74,12 +74,12 @@ public class LessonServices {
 
 				String bg_image = null;
 				String bgImage = "";
-				String type="cover";
+				String type="100% 100%";
 				if(cmsSlide.getImage_BG()!=null){
 					if(cmsSlide.getImage_BG().contains(".png")){
 						bg_image = cmsSlide.getImage_BG().replaceAll(".png","_desktop.png");
 						bgImage = "data-background-image='"+bg_image+"'";
-						
+						type = "100% 100%";
 
 					}
 					if (cmsSlide.getImage_BG().contains(".gif")) {

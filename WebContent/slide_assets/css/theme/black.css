@@ -523,4 +523,7 @@ blockquote em{
 .reveal .slide-number {
   font-size: 24pt;
   color: #ffffff; }
-  
+    
+.slide-background.NO_CONTENT{
+	background-size: 100% 100%;
+}

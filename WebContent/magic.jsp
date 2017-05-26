@@ -131,9 +131,7 @@
 					console.log(templateName);
 					console.log(size);
 					
-					if(templateName ==='no_content'){
-						//x[i].style.background-size= 'cover';
-					}
+				
 					if(templateName ==='only_title'){
 						x[i].style.fontSize = size+'%';
 						 x[i].style.top = window.innerHeight/3+'px';;
@@ -180,9 +178,6 @@
 				console.log(size);
 				
 				
-				if(templateName ==='no_content'){
-					//x[i].style.background-size= 'cover';
-				}
 				
 				if(templateName ==='only_title'){
 					 x[i].style.fontSize = size+'%';
