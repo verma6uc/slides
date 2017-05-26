@@ -62,10 +62,53 @@
 	</div>
 
 	<script src="<%=basePath%>lib/js/head.min.js"></script>
-	<script src="<%=basePath%>js/reveal.js"></script>
+	<script src="<%=basePath%>js/reveal.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	
+<script src="<%=basePath%>js/jquery.jeditable.js" type="text/javascript" charset="utf-8"></script>
 
 	<script>
-		// More info https://github.com/hakimel/reveal.js#configuration
+    <%-- $('.edit').editable('<%=basePath%>../edit_ppt?lesson_id=<%=lesson_id%>&',{
+    	
+    	 submit : 'OK',
+    	 indicator : 'Saving...',
+         tooltip   : 'Click to edit...'
+    }); --%>
+ 
+     $('.edit').editable(function(value, settings) {
+       
+        console.log('slide_id--'+$(this).attr("data-slide_id"));
+        console.log('element_type--'+$(this).attr("data-element_type"));
+        console.log('lesson_id--'+<%=lesson_id%>);
+        console.log(value);
+        
+        $.post('<%=basePath%>../edit_ppt',
+                {
+        	slide_id:  $(this).attr("data-slide_id"),
+        	element_type: $(this).attr("data-element_type"),
+        	lesson_id:<%=lesson_id%>
+                },
+                function(data,status){
+                 value = data;
+                });
+           
+      
+        return(value);
+     }, {
+    	 indicator : 'Saving...',
+         submit  : 'OK',
+    }); 
+    
+    $('.edit').editable('<%=basePath%>../edit_ppt', {
+    	indicator : 'Saving...',
+        submit   : 'OK',
+        tooltip   : 'Click to edit...',
+        callback : function(value, settings) {
+        	 console.log(value);
+            return(value);
+        }
+    }); 
+    
+    // More info https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
 			controls : true,
 			progress : true,
@@ -128,12 +171,10 @@
 					var HtmlElementSlideHolder =  document.getElementById('slide_'+slide_id);
 					var size =HtmlElementSlideHolder.dataset.length;
 					var templateName =HtmlElementSlideHolder.dataset.template;
-					console.log(templateName);
-					console.log(size);
+					//console.log(templateName);
+					//console.log(size);
 					
-					if(templateName ==='no_content'){
-						//x[i].style.background-size= 'cover';
-					}
+					
 					if(templateName ==='only_title'){
 						x[i].style.fontSize = size+'%';
 						 x[i].style.top = window.innerHeight/3+'px';;
@@ -176,20 +217,15 @@
 				var HtmlElementSlideHolder =  document.getElementById('slide_'+slide_id);
 				var size =HtmlElementSlideHolder.dataset.length;
 				var templateName =HtmlElementSlideHolder.dataset.template;
-				console.log(templateName);
-				console.log(size);
+				//console.log(templateName);
+				//console.log(size);
 				
-				
-				if(templateName ==='no_content'){
-					//x[i].style.background-size= 'cover';
-				}
 				
 				if(templateName ==='only_title'){
 					 x[i].style.fontSize = size+'%';
 					 x[i].style.top = window.innerHeight/3+'px';;
 					 x[i].style.verticalAlign='middle';
 					 x[i].style.display='table-cell';
-					 
 				}else if(templateName ==='only_video'){
 					x[i].style.top = null;
 				}
@@ -201,7 +237,7 @@
 				
 			}
 
-		} );
+		});
 	</script>
 
 </body>

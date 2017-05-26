@@ -84,7 +84,7 @@ public class LessonServices {
 					}
 					if (cmsSlide.getImage_BG().contains(".gif")) {
 						bg_image = cmsSlide.getImage_BG();
-						type = "contain";
+						 type="contain";
                         bgImage = "data-background-image='"+bg_image+"'";
 					}
 	
@@ -165,7 +165,7 @@ public class LessonServices {
 					System.err.println("doc.text().length()------->"+doc.text().length());
 				}
 				if(length<500) {
-					length = 140;
+					length = 120;
 				} else {
 					length = 100;
 				}
