@@ -114,6 +114,7 @@ public class LessonServices {
 				StringWriter writer = new StringWriter();
 				t.merge(context, writer);
 				String data1 = writer.toString();
+				data1 = data1.replaceAll("[^\\x00-\\x7F]","");
 				data1 = data1.replaceAll("<p></p>", "");
 				data1 = data1.replaceAll("/content/media_upload\\?getfile=", "/video/");
 

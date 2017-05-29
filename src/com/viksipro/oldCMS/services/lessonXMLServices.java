@@ -1,10 +1,15 @@
 package com.viksipro.oldCMS.services;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
@@ -30,7 +35,7 @@ public class lessonXMLServices {
 		return lessonXML;
 	}
 	
-	public boolean createlessonXMLFile(String lessonXML, int lessonID){
+	public boolean createlessonXMLFile(String lessonXML, int lessonID) throws IOException{
 		boolean success = false;
 	////////
 			String path ="";
@@ -52,24 +57,22 @@ public class lessonXMLServices {
 		//String path = "C:/root/lessonXMLs1/";
 		path+=""+lessonID+".xml";
 		System.err.println(path);
-		File file = new File(path);
-		
-		try{
-			if(file.createNewFile()){
-				FileWriter fw = new FileWriter(file);
-				fw.write(lessonXML);
-				fw.close();
-				success = true;
+		Writer out = new BufferedWriter(new OutputStreamWriter(
+			    new FileOutputStream(path), "UTF-8"));
+			try {
+			    out.write(lessonXML);
+			} finally {
+			    out.close();
 			}
-		} catch (IOException e) {
-			// TODO: handle exception
-		}
+			
+			//File file = new File(path);
+		
 			
 		return success;
 	}
 	
 	//to write xml files to local file system
-	public void generateAllLessonXMLFiles(){
+	public void generateAllLessonXMLFiles() throws NumberFormatException, IOException{
 		String sql = "select lesson_id from presentaion ORDER BY lesson_id";
 		List<HashMap<String, Object>> lessons = (new com.viksitpro.core.utilities.DBUTILS()).executeQuery(sql);
 		lessonXMLServices xmlServices = new lessonXMLServices();
